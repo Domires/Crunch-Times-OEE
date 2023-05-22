@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #fff;
+            height: 100vh;
+        }  
+
+        #container {
+            height: 100vh;
+            display: flex;
+        }
+
+        iframe {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* width: 100%; */
+        }
+
+        .add-semana-17 {
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+
+        /* #btn {
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        } */
+
+        #btn {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px;
+        cursor: pointer;
+        transition: 300ms;
+        }
+    
+        #btn:hover {
+            transform: translateY(-2px);
+            background-color: #000;
+            color: #999;
+        }
+    
+        .input-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    
+        #form-footer {
+            text-align: center;
+            font-size: 12px;
+        }
+    
+        a {
+            text-decoration: none;
+        }
+    
+        #form input {
+            border-width: 0 0 1px 0;
+            border-bottom: solid #000 1px;
+        }
+    
+        #form input:focus {
+            border-width: 0 0 1px 0;
+            border-bottom: solid #000 1px;
+        }
+    
+        #principal {
+            background-color: #f4f4f4;
+            border-right: solid #333 1px;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="container">
+        <div id="principal" style="padding-left: 10px; padding-top: 10px; padding-right: 10px;text-align: center;padding-top: 35vh; width: 15.5%;">
+            <h1 style="font-size: 36px;">CRUNCH TIMES</h1>
+            <h2 style="font-size: 29px;">Produção - OEE</h2>
+            
+            <a style="text-decoration: none;color: #000;background-color: #890000;color: #fff;" id="btn" href="/logout">SAIR</a> 
+        </div>
+           
+        <div class="add-semana-17">
+        <form id="form" action="/addProducao" method="post">
+                <table>
+                    <tr>
+                        <td><p style="text-align: end;margin-right: 15px;font-size: 12.9px;">H_disp</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Q_CS</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Ag_Tq_Fus</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Bat_TQ_Fus</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">BB_Fus</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Q_Sol</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">HH_Prog</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Ag_Tq_Car</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Bat_TQ_Mis</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">BB_Mis</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Ag_Tq_Ali</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">BB_Ali</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Acc_Maq_form</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Acc_trans_Estoc</p></td>
+                        <!-- <td><p style="text-align: center;font-size: 12.9px;">Q_MF_max</p></td> -->
+                        <td><p style="text-align: center;font-size: 12.9px;">Q_MF_real</p></td>
+                        <td><p style="text-align: center;font-size: 12.9px;">Aprov_qual</p></td>
+                        <!-- <td><p style="text-align: center;font-size: 12.9px;">Disponibilidade</p></td> -->
+                        <!-- <td><p style="text-align: center;font-size: 12.9px;">Performance</p></td> -->
+                        <!-- <td><p style="text-align: center;font-size: 12.9px;">OEE</p></td> -->
+                    </tr>
+                    <tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #12239E;">Sem_17_1 24/04/2023	CARAMELO CROCANTE</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                    <tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #12239E;">Sem_17_2	25/04/2023	CARAMELO CROCANTE</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #E66C37">Sem_17_3 26/04/2023	FLOCO DE ARROZ</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #E66C37">Sem_17_4 27/04/2023	FLOCO DE ARROZ</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #E66C37">Sem_17_5 28/04/2023	FLOCO DE ARROZ</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #D9B300">Sem_17_6 29/04/2023 Amendoim</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                        <td  style="text-align: end;"><span style="margin-right: 10px; color: #D9B300">Sem_17_7 30/04/2023 Amendoim</span><input style="width: 70px;" type="number" name="H_disp" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_CS" placeholder="60kg"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Fus" placeholder="23h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Fus" placeholder="9"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Fus" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Q_Sol" placeholder="8kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="HH_Prog" placeholder="24h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Car" placeholder="21h"></td>
+                        <td><input style="width: 70px;" type="number" name="Bat_TQ_Mis" placeholder="27"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Mis" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="Ag_Tq_Ali" placeholder="22h"></td>
+                        <td><input style="width: 70px;" type="number" name="BB_Ali" placeholder="20h"></td>
+                        <td><input style="width: 90px; background-color: #00ff00;" required="true" type="number" name="Acc_Maq_form" placeholder="20h"></td>
+                        <td><input style="width: 100px; background-color: #00ff00;" required="true" type="number" name="Acc_trans_Estoc" placeholder="20h"></td>
+                        <!-- <td><input style="width: 70px;" type="number" name="Q_MF_max" placeholder="Q_MF_max"></td> -->
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Q_MF_real" placeholder="69kg"></td>
+                        <td><input style="width: 70px; background-color: #00ff00;" required="true" type="number" name="Aprov_qual" placeholder="95%"></td>
+                        <!-- <td><input style="width: 90px;" type="number" name="Disponibilidade" placeholder="Disponibilidade"></td> -->
+                        <!-- <td><input style="width: 80px;" type="number" name="Performance" placeholder="Performance"></td> -->
+                        <!-- <td><input style="width: 70px;" type="number" name="OEE" placeholder="OEE"></td> -->
+                    </tr>
+                </table>
+                
+                    <button style="position: absolute; right: 0;" type="submit" id="btn">EFETUAR FECHAMENTO</button>
+        
+            </form>
+        </div>
+        
+        <iframe title="OEE" width="84.5%" height="700" bottom="0" src="https://app.powerbi.com/view?r=eyJrIjoiNmVlNDQ3NDMtMTRmNi00MzY2LTg3NmUtMzAzZmI1ODBjMzFiIiwidCI6IjhlMjY5ZWRmLWEzNmYtNDVjMi1hMmVjLTZkNTJhMWRmZTZmYiJ9" frameborder="0" allowFullScreen="true"></iframe>
+
+    </section>
+        <script src="script.js"></script>
+</body>
+
+</html>
